@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Kshetrimayum Moramba Singh — AI/ML, Deep Learning and Web Development Portfolio">
+<title>Moramba Singh | AI/ML Portfolio</title>
+<style>
+:root{
+  --bg:#07100d; --panel:#0d1814; --panel2:#111f1a; --text:#edf7f1;
+  --muted:#9db0a7; --line:rgba(255,255,255,.10); --accent:#9fe870;
+  --accent2:#d7ffbf; --max:1160px; --radius:24px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:radial-gradient(circle at 75% 5%,rgba(159,232,112,.10),transparent 28%),var(--bg);
+  color:var(--text); line-height:1.6;
+}
+a{color:inherit;text-decoration:none}
+.container{width:min(calc(100% - 40px),var(--max));margin:auto}
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:20;
+  backdrop-filter:blur(18px);background:rgba(7,16,13,.72);border-bottom:1px solid var(--line)
+}
+.nav-inner{height:74px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:800;letter-spacing:-.03em}.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:26px;color:var(--muted);font-size:.93rem}
+.nav-links a:hover{color:var(--accent)}
+.menu{display:none;background:none;border:0;color:white;font-size:1.5rem}
+.hero{min-height:100vh;padding:150px 0 80px;display:grid;grid-template-columns:1.08fr .92fr;gap:70px;align-items:center}
+.eyebrow{color:var(--accent);font-size:.82rem;text-transform:uppercase;letter-spacing:.18em;font-weight:800;margin-bottom:18px}
+h1{font-size:clamp(3.1rem,7vw,6.6rem);line-height:.94;letter-spacing:-.075em;max-width:800px}
+h1 em{font-style:normal;color:var(--accent)}
+.hero-copy{font-size:1.12rem;color:var(--muted);max-width:650px;margin:28px 0}
+.buttons{display:flex;gap:13px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 20px;border-radius:999px;border:1px solid var(--line);font-weight:700}
+.btn.primary{background:var(--accent);color:#091108;border-color:var(--accent)}
+.btn:hover{transform:translateY(-2px)}
+.hero-photo{position:relative}
+.hero-photo:before{content:"";position:absolute;inset:-20px -25px 20px 25px;border:1px solid rgba(159,232,112,.23);border-radius:36px;transform:rotate(3deg)}
+.hero-photo img{position:relative;width:100%;max-height:650px;object-fit:cover;border-radius:30px;display:block;box-shadow:0 35px 90px rgba(0,0,0,.45)}
+.statbar{display:flex;gap:30px;margin-top:40px;flex-wrap:wrap}
+.stat strong{display:block;font-size:1.65rem}.stat span{color:var(--muted);font-size:.82rem}
+section{padding:105px 0;border-top:1px solid var(--line)}
+.section-head{display:flex;justify-content:space-between;gap:40px;align-items:end;margin-bottom:45px}
+.section-head h2{font-size:clamp(2rem,4vw,3.6rem);letter-spacing:-.055em;line-height:1}
+.section-head p{color:var(--muted);max-width:480px}
+.about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px}
+.about-text{font-size:1.12rem;color:#c7d5ce}
+.about-text p+p{margin-top:18px}
+.pills{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}
+.pill{padding:8px 13px;border:1px solid var(--line);border-radius:999px;color:var(--muted);background:rgba(255,255,255,.025)}
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.015));border:1px solid var(--line);border-radius:var(--radius);padding:28px}
+.card h3{margin-bottom:12px;font-size:1.1rem}.card p{color:var(--muted)}
+.project-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:18px}
+.project{min-height:320px;display:flex;flex-direction:column;justify-content:space-between}
+.project.featured{background:linear-gradient(145deg,rgba(159,232,112,.12),rgba(255,255,255,.02))}
+.project .number{font-size:.78rem;color:var(--accent);font-weight:800;letter-spacing:.12em}
+.project h3{font-size:2rem;letter-spacing:-.04em;margin:18px 0 10px}
+.project p{color:var(--muted)}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}.tag{font-size:.75rem;padding:6px 9px;border-radius:8px;background:rgba(255,255,255,.07);color:#cddbd4}
+.timeline{display:grid;gap:16px}
+.timeline-item{display:grid;grid-template-columns:190px 1fr;gap:30px;padding:25px 0;border-bottom:1px solid var(--line)}
+.timeline-item:last-child{border-bottom:0}
+.date{color:var(--accent);font-weight:700;font-size:.9rem}.role{font-size:1.25rem;font-weight:750}.place{color:var(--muted);margin:3px 0 8px}.timeline-item p{color:var(--muted)}
+.achievements{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.achievement{display:flex;gap:16px;align-items:flex-start}.icon{width:38px;height:38px;display:grid;place-items:center;border-radius:12px;background:rgba(159,232,112,.10);color:var(--accent);flex:0 0 auto}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:stretch}
+.contact-card{padding:40px;border-radius:28px;border:1px solid var(--line);background:var(--panel)}
+.contact-card h2{font-size:clamp(2.2rem,5vw,4.5rem);letter-spacing:-.06em;line-height:.98}
+.contact-links{display:grid;gap:12px}.contact-links a{padding:17px 20px;border:1px solid var(--line);border-radius:16px;color:#cfe0d7}
+.contact-links a:hover{border-color:var(--accent);color:var(--accent)}
+footer{padding:30px 0;color:var(--muted);font-size:.85rem;display:flex;justify-content:space-between;gap:20px}
+@media(max-width:850px){
+ .hero{grid-template-columns:1fr;padding-top:125px}.hero-photo{max-width:620px}
+ .about-grid,.project-grid,.contact{grid-template-columns:1fr}.skills{grid-template-columns:1fr 1fr}
+ .nav-links{display:none}.menu{display:block}
+ .nav-links.open{display:flex;position:absolute;top:74px;left:0;right:0;padding:20px;background:#07100d;flex-direction:column;border-bottom:1px solid var(--line)}
+}
+@media(max-width:560px){
+ .container{width:min(calc(100% - 28px),var(--max))}
+ h1{font-size:3.4rem}.skills,.achievements{grid-template-columns:1fr}
+ .timeline-item{grid-template-columns:1fr;gap:5px}.section-head{display:block}
+ .section-head p{margin-top:15px}footer{display:block}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="container nav-inner">
+    <a class="logo" href="#home">MORAMBA<span>.</span></a>
+    <button class="menu" aria-label="Open menu">☰</button>
+    <div class="nav-links">
+      <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a>
+      <a href="#experience">Experience</a><a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<main id="home">
+<section class="hero">
+  <div>
+    <div class="eyebrow">AI / ML • Deep Learning • Technology</div>
+    <h1>Building useful <em>AI</em> for the real world.</h1>
+    <p class="hero-copy">I'm Kshetrimayum Moramba Singh, a Computer Science & Engineering graduate who enjoys turning ideas into practical AI, machine-learning and web applications.</p>
+    <div class="buttons">
+      <a class="btn primary" href="#projects">View my work ↗</a>
+      <a class="btn" href="#contact">Let's connect</a>
+    </div>
+    <div class="statbar">
+      <div class="stat"><strong>8.36</strong><span>CGPA / 10</span></div>
+      <div class="stat"><strong>3</strong><span>Internships</span></div>
+      <div class="stat"><strong>13</strong><span>Rice disease classes</span></div>
+    </div>
+  </div>
+  <div class="hero-photo"><img src="profile.jpg" alt="Kshetrimayum Moramba Singh"></div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="section-head"><h2>About me</h2><p>A curious engineer focused on practical AI and continuous learning.</p></div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I completed my Bachelor of Engineering in Computer Science & Engineering at Manipur Institute of Technology, Manipur University, with a CGPA of 8.36/10.</p>
+        <p>My recent work has focused on computer vision, deep learning, data preprocessing, web development and emerging generative-AI technologies.</p>
+        <div class="pills"><span class="pill">Python</span><span class="pill">Deep Learning</span><span class="pill">Computer Vision</span><span class="pill">Generative AI</span><span class="pill">Web Development</span></div>
+      </div>
+      <div class="card">
+        <h3>Currently learning</h3>
+        <p>At the Centre of Excellence for AI program at Anudip Foundation, in association with Accenture, I am working with prompt engineering, LLM fundamentals, AI APIs, LangChain, agents, RAG, vector databases, Ollama, FastAPI, Docker and Git/GitHub workflows.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container">
+    <div class="section-head"><h2>Toolkit</h2><p>Technologies and concepts I use or am actively developing.</p></div>
+    <div class="skills">
+      <div class="card"><h3>Programming</h3><p>Python · JavaScript · PHP · SQL</p></div>
+      <div class="card"><h3>AI / ML</h3><p>CNNs · Deep Learning · Data Preprocessing · Augmentation · Model Training & Evaluation</p></div>
+      <div class="card"><h3>Generative AI</h3><p>Prompt Engineering · LLMs · LangChain · AI Agents · RAG · Vector Databases · Ollama</p></div>
+      <div class="card"><h3>Web</h3><p>HTML5 · CSS3 · JavaScript · PHP · MySQL · Bootstrap · ASP.NET</p></div>
+      <div class="card"><h3>APIs & Deployment</h3><p>FastAPI · API Integration · Docker · Git · GitHub workflows</p></div>
+      <div class="card"><h3>Data & Cloud</h3><p>NumPy · Pandas · IBM Cloud · AI/ML project workflows</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <div class="section-head"><h2>Selected projects</h2><p>Hands-on work built during my engineering journey.</p></div>
+    <div class="project-grid">
+      <article class="card project featured">
+        <div><div class="number">01 / FINAL YEAR PROJECT</div><h3>Rice Leaf Disease Detection</h3><p>Designed and trained a custom CNN to classify 13 categories of rice leaf disease from a Kaggle image dataset. Applied image preprocessing and augmentation to improve generalization.</p></div>
+        <div class="tags"><span class="tag">CNN</span><span class="tag">Deep Learning</span><span class="tag">Computer Vision</span><span class="tag">Python</span><span class="tag">~90% validation accuracy</span></div>
+      </article>
+      <article class="card project">
+        <div><div class="number">02 / MINI PROJECT</div><h3>Online Exam Result System</h3><p>A web application allowing students to view semester-wise results using roll number and semester selection, with dynamic result generation, pass/fail computation and input validation.</p></div>
+        <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">PHP</span><span class="tag">MySQL</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="container">
+    <div class="section-head"><h2>Experience</h2><p>Internships and training that shaped my technical foundation.</p></div>
+    <div class="timeline">
+      <div class="timeline-item"><div class="date">Jul 2025 – Aug 2025</div><div><div class="role">AI & Cloud Emerging Technologies Intern</div><div class="place">Edunet Foundation · AICTE & IBM SkillsBuild</div><p>Completed a 4-week internship applying IBM Cloud and emerging AI technologies to hands-on tasks and mini-projects.</p></div></div>
+      <div class="timeline-item"><div class="date">Sep 2024 – Oct 2024</div><div><div class="role">Web Application Development Intern</div><div class="place">CubeTen Technologies Pvt. Ltd., Imphal</div><p>Built and tested web application features using Bootstrap and ASP.NET under senior developer guidance.</p></div></div>
+      <div class="timeline-item"><div class="date">Aug 2024</div><div><div class="role">Data Science & Machine Learning Intern</div><div class="place">YBI Foundation</div><p>Applied data science and machine learning techniques to guided projects over a one-month internship.</p></div></div>
+      <div class="timeline-item"><div class="date">Ongoing</div><div><div class="role">Centre of Excellence for AI</div><div class="place">Anudip Foundation · in association with Accenture</div><p>12-week job-focused training covering GenAI, RAG, agents, APIs, local LLMs, FastAPI, Docker and responsible AI.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head"><h2>Beyond code</h2><p>Activities and achievements from university life.</p></div>
+    <div class="achievements">
+      <div class="card achievement"><div class="icon">↗</div><div><h3>Smart India Hackathon 2024</h3><p>Team Member, Team LABOMA — Internal Round, Manipur Institute of Technology.</p></div></div>
+      <div class="card achievement"><div class="icon">✦</div><div><h3>NE-ICIST 2025</h3><p>Volunteer — coordinated logistics for an international conference on science & technology innovation.</p></div></div>
+      <div class="card achievement"><div class="icon">◎</div><div><h3>RBI Cyclothon</h3><p>Participant — Financial Literacy Week 2026.</p></div></div>
+      <div class="card achievement"><div class="icon">♡</div><div><h3>International Women’s Day Run</h3><p>Participant — 15K/7K Empowerment Run, Khelo India collaboration.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="contact">
+      <div class="contact-card">
+        <div class="eyebrow">Get in touch</div>
+        <h2>Have an idea?<br>Let's build it.</h2>
+        <p style="color:var(--muted);margin-top:20px">Open to hands-on AI, ML, technology and software opportunities.</p>
+      </div>
+      <div class="contact-card">
+        <div class="contact-links">
+          <a href="mailto:kshetrimayummoramba@gmail.com">✉ kshetrimayummoramba@gmail.com</a>
+          <a href="tel:+919612346635">☎ +91 9612346635</a>
+          <a href="https://www.linkedin.com/in/kshetrimayum-moramba-singh-260b792b2" target="_blank">in LinkedIn profile ↗</a>
+          <a href="https://github.com/moramba2005" target="_blank">⌘ GitHub profile ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="container">
+  <span>© 2026 Kshetrimayum Moramba Singh</span><span>Built with HTML · CSS · JavaScript</span>
+</footer>
+
+<script>
+const menu=document.querySelector('.menu');
+const links=document.querySelector('.nav-links');
+menu.addEventListener('click',()=>links.classList.toggle('open'));
+document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+</script>
+</body>
+</html>
